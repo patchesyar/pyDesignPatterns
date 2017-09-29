@@ -24,30 +24,41 @@ class toy():
     def play(self):
         print("You play with the toy")
 
-class toyTrain(toy):
+class toyTrain():
     def play(self):
         print("You play with the train. Choo choo!")
 
 
-class toyFlute(toy):
+class toyFlute():
     def play(self):
         print("You play with the flute. Toot toot!")
 
-class toyBall(toy):
+class toyBall():
     def play(self):
         print("You play with the ball. Bouncy bouncy")
 
 
-class oldMainClass():
+class newMainClass():
     def run(self):
         print("Welcome to 4 Da Kids Toys")
-        startupSequence()
-        while( not endOfDay):
+        toyType= input("Select the type of toy to make: ")
+        toy=None
+        #begin refactor
+        if (toyType=="ball"):
+            toy= toyBall()
+
+        elif (toyType=="flute"):
+            toy= toyFlute()
             
+        elif (toyType=="train"):
+            toy= toyTrain()
 
-    def startupSequence():
-        print("Doing routine startup tasks")
-        print("Startup complete, ready to assemble")
+        else:
+            toy=toy()
+        #end refactor
+        toy.play()
+        print("Toy quality has been assured. Shutting down")
 
-oldRunnable= oldMainClass()
-oldRunnable.run()
+
+newRunnable= newMainClass()
+newRunnable.run()
